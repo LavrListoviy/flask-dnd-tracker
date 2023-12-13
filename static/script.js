@@ -13,6 +13,7 @@ $(document).ready(() => {
             $(this).val(Math.max(parseInt($(this).val(), 10) - 1, $(this).attr('min')));
         }
     });
+
     $(".save-char").mouseup(() => {
         const nonChangable = ["health", "max-health", "added-health", "armor-raiting"];
         const elemsArr = document.querySelector('.char-item.editing').querySelectorAll(".char-param");
@@ -41,6 +42,7 @@ $(document).ready(() => {
         $(".save-char").remove();
 
     })
+    
     $(document).mouseup((e) => {
         if (creatureMenu.hasClass("active")) {
             if (!creatureMenu.is(e.target) && creatureMenu.has(e.target).length === 0) {
