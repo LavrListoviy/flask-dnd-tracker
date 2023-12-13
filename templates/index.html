@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>DnD Universal Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let isResizing = false;
+            let trackerCanvas = $(".tracker-canvas");
+            let resizeHandleHeight = 10; // Высота области для изменения размера
+
+            trackerCanvas.mousedown(function (e) {
+                // Проверка, что событие произошло в пределах области для изменения размера
+                if (e.pageY >= trackerCanvas.offset().top + trackerCanvas.height() - resizeHandleHeight) {
+                    isResizing = true;
+
+                    $(document).mousemove(function (e) {
+                        if (isResizing) {
+                            trackerCanvas.height(e.pageY - trackerCanvas.offset().top);
+                        }
+                    });
+
+                    e.preventDefault();
+                }
+            });
+
+            $(document).mouseup(function () {
+                isResizing = false;
+            });
+        });
+    </script>
+    <script src="{{ url_for('static', filename='script.js')}}"></script>
+</head>
+
+<body>
+    <div class="great_container">
+        <div class="side-menu">
+            <li class="menu_item active">Tracker</li>
+            <li class="menu_item">Players</li>
+        </div>
+        <div class="left-side_container">
+            <div class="tracker-canvas">
+                <div class="char_container">
+                    <div class="char-item editing">
+                        <div class="char-param name">
+                            <label for="name-[id]">Имя: </label>
+                            <input type="text" class="char-item-field name" id="name-[id]"
+                                placeholder="Имя или название" maxlength="18">
+                        </div>
+                        <div class="char-param initiative">
+                            <label for="initiative-[id]">Инициатива: </label>
+                            <input type="number" class="char-item-field initiative" id="initiative-[id]" value="1"
+                                max="50" min="1">
+                        </div>
+                        <div class="char-param health">
+                            <label for="health-[id]">Здоровье: </label>
+                            <input type="number" class="char-item-field health" id="health-[id]" value="0" max="500"
+                                min="0">
+                        </div>
+                        <div class="char-param max-health">
+                            <label for="max-health-[id]">Макс. здоровье: </label>
+                            <input type="number" class="char-item-field max-health" id="max-health-[id]" value="0"
+                                max="500" min="0">
+                        </div>
+                        <div class="char-param added-health">
+                            <label for="added-health-[id]">Доп. здоровье: </label>
+                            <input type="number" class="char-item-field added-health" id="added-health-[id]" value="0"
+                                max="500" min="0">
+                        </div>
+                        <div class="char-param armor-raiting">
+                            <label for="armor-raiting-[id]">Класс защиты: </label>
+                            <input type="number" class="char-item-field armor-raiting" id="armor-raiting-[id]"
+                                value="10" max="35" min="0">
+                        </div>
+                        <button class="save-char">Сохранить</button>
+                    </div>
+                </div>
+                <div class="btn_container">
+                    <button class="add-creature" id="add-creature">
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g id="Edit / Add_Plus">
+                                    <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#000000"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </g>
+                        </svg>
+                        <div>Добавить существо</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="rigth-side_container" id="add-creature-menu"></div>
+    </div>
+</body>
+
+</html>
