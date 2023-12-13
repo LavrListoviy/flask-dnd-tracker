@@ -30,7 +30,6 @@ $(document).ready(() => {
                     elem.remove();
                 }
             })
-            console.log(health);
             let healthPercentage = Math.floor(health.get('health') / health.get('max-health') * 100);
             const healthbar = document.createElement('div');
             healthbar.style = `position: relative; height: 18px; width: 100%; background-color: red`;
