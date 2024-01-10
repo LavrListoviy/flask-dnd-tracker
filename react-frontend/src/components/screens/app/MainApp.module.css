@@ -1,3 +1,22 @@
-.container {
-  display: flex;
+.plusBtn {
+  position: absolute;
+  top: 192px;
+  width: 64px;
+  height: 64px;
+}
+.add {
+  border: 2px solid #3eb489;
+  width: 298px;
+  height: 453px;
+  cursor: pointer;
+  transition: all 0,9s ease;
+  -webkit-transition: all 0,9s ease;
+  -moz-transition: all 0,9s ease;
+  -ms-transition: all 0,9s ease;
+  -o-transition: all 0,9s ease;
+  padding-top: 0;
+}
+
+.add:hover {
+  background-color: rgba(245, 245, 245, 0.095);
 }

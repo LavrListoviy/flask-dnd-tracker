@@ -5,7 +5,7 @@ const CreateChar = ({ closeModal }) => {
   return (
     <div className={styles.modal_overlay} >
       <div className={styles.modal_box}>
-        <div className={styles.close_button} onClick={closeModal} title="Закрыть">
+        <div className="close_button" onClick={closeModal} title="Закрыть">
           <svg
             fill="#3eb489"
             xmlns="http://www.w3.org/2000/svg"

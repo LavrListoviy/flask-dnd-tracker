@@ -1,29 +1,26 @@
 .side_menu {
   position: relative;
+  overflow: hidden;
+  min-height: 100vh;
   height: 100%;
   width: 52px;
   background-color: #111418;
-  padding-top: 50px;
+  padding-top: 10px;
   border-right: 1px solid #3eb489;
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 
 .side_menu.open {
   width: 200px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 15px;
-}
-
 .toggle_button {
   position: absolute;
-  top: 10px;
+  top: 5px;
   left: 10px;
   background-color: transparent;
   border: none;
@@ -37,11 +34,32 @@ li {
   text-decoration: none;
   color: #ffead1;
   visibility: collapse;
-  transition: all 0,3s linear;
-  -webkit-transition: all 0,3s linear;
-  -moz-transition: all 0,3s linear;
-  -ms-transition: all 0,3s linear;
-  -o-transition: all 0,3s linear;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 30px;
+  width: 100%;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+}
+
+.side_item:hover {
+  background-color: #ffffff42;
+}
+
+.side_item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  width: auto;
+  height: 1px;
+  background-color: #3eb489;
 }
 
 .side_menu.open .side_item {

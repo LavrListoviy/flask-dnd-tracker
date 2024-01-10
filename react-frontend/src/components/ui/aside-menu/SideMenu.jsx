@@ -66,16 +66,12 @@ const SideMenu = () => {
       </button>
       <div className={`${styles.side_menu} ${menuOpen ? styles.open : ""}`}>
         <ul>
-          <li>
             <Link className={styles.side_item} to="/">
-              Tracker
+              Трекер
             </Link>
-          </li>
-          <li>
             <Link className={styles.side_item} to="/manage-characters">
-              Characters
+              Персонажи
             </Link>
-          </li>
         </ul>
       </div>
     </>
